@@ -1,0 +1,10 @@
+{
+    "configurations": [
+        {
+            "name": "Flutter (lib/offline_image.dart)",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/offline_image.dart"
+        }
+    ]
+}
