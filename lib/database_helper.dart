@@ -31,14 +31,21 @@ class DatabaseHelper {
       CREATE TABLE images (
         id INTEGER PRIMARY KEY AUTOINCREMENT,
         path TEXT NOT NULL,
+        subject TEXT,       
+        description TEXT,
+        batch_id TEXT,
         status TEXT NOT NULL -- 'pending' or 'synced'
       )
     ''');
   }
 
-  Future<int> insertImage(String path) async {
+  Future<int> insertImage(String path, String subject, String description, String batchId) async {
     final db = await instance.database;
-    return await db.insert('images', {'path': path, 'status': 'pending'});
+    return await db.insert('images', {'path': path, 'status': 'pending',
+    'subject': subject, 
+      'description': description,
+      'batch_id': batchId,
+      });
   }
 
   Future<List<Map<String, dynamic>>> getPendingImages() async {
